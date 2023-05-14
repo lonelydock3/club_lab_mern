@@ -44,6 +44,9 @@
     - Create routes, controllers 
     - Setup error handling (getting body data and such)
 - Connect to database
+    - MongoDB
+    - Connect with mongoose
+    - Create models 
 
 --- 
 
