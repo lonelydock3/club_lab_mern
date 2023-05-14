@@ -1,0 +1,30 @@
+{
+  "name": "club_lab_mern",
+  "version": "1.0.0",
+  "description": "ClubLab mern stack app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lonelydock3/club_lab_mern.git"
+  },
+  "author": "Brett O'Connor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lonelydock3/club_lab_mern/issues"
+  },
+  "homepage": "https://github.com/lonelydock3/club_lab_mern#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^7.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
