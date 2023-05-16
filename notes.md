@@ -35,6 +35,40 @@
 ## MongoDB Atlas 
 
 - Cloud database
+- To setup: 
+    - Create a project
+    - Build database 
+        - For starting off, do a shared cluster (free)
+        - You can do all default settings
+        - You can name it what you want 
+    - Create a database user with a username and password
+        - lonelydock3
+    - Connect from: keep local environment
+    - Add current IP address 
+    - Go to Browse Collections
+        - Click Add Own Data
+        - Give the database a name and give the collection a name
+    - Go to Connect
+        - Compass
+            - Copy the string and open MongoDB Compass
+    - In Compass
+        - Paste the string in the connection part 
+        - Append the database name to the end of the string
+        - Fill in password in the \<password\> part 
+        - Click Connect
+    - Back to MongoDB website
+        - Click Connect 
+            - Connect your application (Drivers)
+                - Copy the string and paste it in your ```.env``` file 
+                - NOTE: make sure you have MongoDB installed using npm
+                ```
+                npm install mongodb
+                ```
+                - Make sure the string in the ```.env``` has your correct password in it and make sure after the ```.net/``` you put the name of your database (clublabapp)
+                NOTE: make sure mongoose is installed too 
+                ```
+                npm install mongoose
+                ```
 
 ---
 
@@ -67,10 +101,19 @@
 - Each file contains functions that we use within our routes 
 - These functions should be async 
 
+```models/```
+
+- Holds the schemas that get put into the database
+
 ```middleware/```
 
 - Contain functions that execute when a request is made
     - Good for error handling and such 
+
+```config/```
+
+- ```db.js```
+    - Connect to our DB here using mongoose
 
 Example: 
 
