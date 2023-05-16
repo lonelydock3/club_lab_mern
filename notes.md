@@ -156,6 +156,47 @@ Example:
     - Do ```npm run server``` to test this out now
         - This should spit out any console log in ```server.js```
 
+### Authentication (using Json Web Tokens - JWTs)
+
+[JWT](https://jwt.io/)
+
+- This is so not everyone can just get, create, update, and remove stuff from your database 
+- Used for adding user functionality to the site 
+- The idea is:
+    - We have a route and we want to protect it.  We need to login, get the token, send the token and its headers to access the protected route
+
+```
+npm i jsonwebtoken
+```
+
+- The JWT has the ID within it (you can change this if you want to)
+    - ```jwt.sign({id})``` in ```generateToken(id)``` function
+
+How to use (with postman): 
+
+- Login your user and get the JWT token
+- Do the GET request on the '/me' path
+    - To do this you must click the Authorization tab in Postman, select the Bearer Token dropdown, and paste in your token
+    - Now you can make the GET request sucessfully 
+
+How to protect a route: 
+
+- Need to add protect as an argument (either first or second argument, depending on if the first one is the path)
+
+```
+router.route('/').post(protect, setGoal)
+```
+
+- NOTE: because of how we setup the middleware, using ```protect``` will give us a ```user.id```
+
+### Encrypting user passwords
+
+Use bcryptJS
+
+```
+npm i bcryptjs
+```
+
 ### Other installations 
 
 Express async handler (used in our controllers)

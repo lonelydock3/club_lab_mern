@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { getGoals, setGoal, updateGoal, deleteGoal } = require('../controllers/goalController')
+const { protect } = require('../middleware/authMiddleware')
 
 // // get
 // // router.get('/', (req, res) => {
@@ -21,8 +22,8 @@ const { getGoals, setGoal, updateGoal, deleteGoal } = require('../controllers/go
 // router.delete('/:id', deleteGoal)
 
 // these can be done more efficiently, if theyre similar enough (meaning they have the same route), with one liners (gotten from above)
-router.route('/').post(setGoal).get(getGoals)
-router.route('/:id').put(updateGoal).delete(deleteGoal)
+router.route('/').post(protect, setGoal).get(protect, getGoals)
+router.route('/:id').put(protect, updateGoal).delete(protect, deleteGoal)
 
 
 module.exports = router // do this so we can use this with other files

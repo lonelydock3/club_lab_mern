@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }))
 
 // allow server js to use the routes 
 app.use('/api/goals', require('./routes/goalRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 
 // use the error handler middleware, overwrite default express error handling
 // NOTE: this needs to be under the routes
