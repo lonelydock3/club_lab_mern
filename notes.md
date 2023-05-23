@@ -81,6 +81,18 @@
     - MongoDB
     - Connect with mongoose
     - Create models 
+- Create the frontend
+    ```
+    npx create-react-app frontend --template redux
+    ```
+    - Clean stuff up in the frontend folder
+        - Delete ```App.css``` and ```logo.svg```
+        - Also delete the ```counter/``` folder within the ```features/``` folder
+    ```
+    cd frontend
+    npm i react-router-dom
+    npm i react-icons
+    ```
 
 --- 
 
@@ -126,6 +138,24 @@ Example:
 
 ### frontend/
 
+- ```src/app/```
+    - ```store.js```
+        - Whenever we create a redux (state) resource (ex: users, goals) we need to add our reducer from a slice and add it to this file
+
+- ```App.js```
+    - The nucleus of the frontend
+    - Contains all of the routes and skeleton of the pages
+        - NOTE: anything within the ```<Routes>``` tag needs to be a ```<Route>```
+
+- ```src/index.css```
+    - Contains the CSS 
+
+- ```src/pages/```
+    - Has all of the page files
+    - Page files end with ```.jsx```
+
+- ```src/components/```
+    - Contains the header for navigation 
 
 ### node_modules/
 
@@ -212,5 +242,21 @@ npm run server
 ```
 
 - If you change anything in the ```.env``` file then you must re-run the server
+
+Once the frontend folder is setup.  In the roots ```package.json``` add a "client" field to the "scripts" json object: 
+
+```
+"scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend"
+}
+```
+
+When that is done, you can run the following command to run the frontend: 
+
+```
+npm run client
+```
 
 
