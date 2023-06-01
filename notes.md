@@ -244,7 +244,9 @@ Express async handler (used in our controllers)
 npm i express-async-handler
 ```
 
-### To run the server
+### To run stuff  
+
+To run the server: 
 
 ```
 npm run server
@@ -267,5 +269,30 @@ When that is done, you can run the following command to run the frontend:
 ```
 npm run client
 ```
+
+To run both at the same time with a one-liner, we use a package called "concurrently".  This allows us to run more than one script at the same time.  To do this do the following: 
+
+```
+npm i -D concurrently
+```
+
+NOTE: We use ```-D``` because it is a "Dev Dependency" 
+
+Now in the roots ```package.json``` add the following to the "scripts" json object:
+
+```
+"scripts": {
+    ...
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+},
+```
+
+Now all you need to do is run: 
+
+```
+npm run dev
+```
+
+This will run both the server and the frontend. 
 
 
