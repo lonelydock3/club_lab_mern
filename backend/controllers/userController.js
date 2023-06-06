@@ -79,11 +79,7 @@ const loginUser = asyncHandler(async (req, res) => {
 // This is used to protect a route (we need middleware for this)
 const getMe = asyncHandler(async (req, res) => {
     const { _id, name, email } = await User.findById(req.user.id) // we have access to req.user.id because we set this up properly in the middleware
-    res.status(200).json({
-        id: _id,
-        name,
-        email
-    })
+    res.status(200).json(req.user)
 })
 
 // Generate JWT

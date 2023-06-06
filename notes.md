@@ -95,6 +95,10 @@
 - Use a function (like register or reset) --> dispatch a function
     - Good for reducers 
 
+### Thunk functions
+
+In this tutorial it seems that "Slices" and "Services" are used to handle data being passed from the user to the frontend to the backend to the database and back.  The functions within the "Slices" are thunk functions. 
+
 ---
 
 ## Getting started
@@ -180,6 +184,9 @@ Example:
                 - Sending data
                 - Getting data back
             - Also handles putting things in local storage
+    - ```goals/``` --> very similar to ```auth/``` just now its for goals (not the users)
+        - ```goalSlice.js```
+        - ```goalService.js```
 
 - ```App.js```
     - The nucleus of the frontend
@@ -342,4 +349,8 @@ npm run dev
 
 This will run both the server and the frontend. 
 
+---
 
+## Questions
+
+- What is the deal with thunk functions? 
