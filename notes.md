@@ -354,3 +354,9 @@ This will run both the server and the frontend.
 ## Questions
 
 - What is the deal with thunk functions? 
+
+## Bugs
+
+- Logout
+    - My browser goes into an infinite loop when I click logout
+    - I think it has something to do with the getGoals stuff
