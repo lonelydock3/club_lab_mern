@@ -79,6 +79,22 @@
     - Effect: ```useEffect```
 - The HTML we use here is our "JSX" and it is what we are returning for a page
 
+```useEffect()```
+
+- Watches for certain things in the dependency array
+
+### React redux
+
+```useSelector()```
+
+- Selects something from the state 
+    - Ex: user, isLoading, isError, etc.
+
+```useDispatch()```
+
+- Use a function (like register or reset) --> dispatch a function
+    - Good for reducers 
+
 ---
 
 ## Getting started
@@ -147,9 +163,23 @@ Example:
 
 ### frontend/
 
-- ```src/app/```
-    - ```store.js```
-        - Whenever we create a redux (state) resource (ex: users, goals) we need to add our reducer from a slice and add it to this file
+- ```src/```
+    - ```app/```
+        - ```store.js```
+            - Whenever we create a redux (state) resource (ex: users, goals) we need to add our reducer from a slice and add it to this file
+    - ```auth/```
+        - Represents the auth part of our global state
+        - ```authSlice.js```
+            - Contains reducers and initial states pertaining to authentication
+            - Used for stuff that uses all of Create, Read, Update, and Delete
+            - NOTE: usually you update your state with what you get back from the server
+            - This enables you to update things within the reducers and extra reducer functions, without having to reload the page
+                - This is done via the "Cases"
+        - ```authService.js```
+            - For HTTP requests
+                - Sending data
+                - Getting data back
+            - Also handles putting things in local storage
 
 - ```App.js```
     - The nucleus of the frontend
@@ -242,6 +272,23 @@ Express async handler (used in our controllers)
 
 ```
 npm i express-async-handler
+```
+
+Axios and React-Toastify 
+
+```
+cd frontend/
+npm i axios react-toastify
+```
+
+- Axios is like postman but within our application --> it makes our HTTP requests 
+
+### Adding a proxy for your HTTP requests
+
+Within the frontend ```package.json``` add the following: 
+
+```
+"proxy": "http://localhost:5000/",
 ```
 
 ### To run stuff  
