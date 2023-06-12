@@ -18,9 +18,10 @@ function Dashboard() {
 
         if (!user) {
             navigate('/login')
+        } else {
+            dispatch(getGoals())
         }
 
-        dispatch(getGoals())
 
         // to reset the state on "unmount" meaning we want the goals to clear
         // need to return from the use effect if we want something to clear on "unmount"

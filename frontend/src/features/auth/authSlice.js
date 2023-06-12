@@ -47,7 +47,7 @@ export const authSlice = createSlice({
         // resets the state to the default values
         reset: (state) => {
             state.isLoading = false
-            state.isError = false
+            state.isSuccess = false
             state.isError = false
             state.message = ''
         }

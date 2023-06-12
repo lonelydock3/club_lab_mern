@@ -76,6 +76,9 @@
     - State: ```useState```
         - Gives all the arguments a state
         - Example: With a form, if you specify ```useState``` for each of the inputs, you must handle the state once the form is submitted
+        - Returns two things
+            - A variable to represent what the state value is (current state value)
+            - A function to update the state
     - Effect: ```useEffect```
 - The HTML we use here is our "JSX" and it is what we are returning for a page
 
