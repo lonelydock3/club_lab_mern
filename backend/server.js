@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const colors = require('colors')
 const dotenv = require('dotenv').config() // allows us to have a dotenv file with our variables in it 
@@ -17,6 +18,15 @@ app.use(express.urlencoded({ extended: false }))
 // allow server js to use the routes 
 app.use('/api/goals', require('./routes/goalRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
+
+
+// Serve frontend
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../frontend/build')))
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')))
+} else {
+    app.get('/', (req, res) => res.send('Please set to production'))
+}
 
 // use the error handler middleware, overwrite default express error handling
 // NOTE: this needs to be under the routes

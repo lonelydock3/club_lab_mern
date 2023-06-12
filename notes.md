@@ -170,6 +170,8 @@ Example:
 
 ### frontend/
 
+NOTE: Pages belong in ```pages/```, components are parts within pages and these belong in the ```components/``` folder
+
 - ```src/```
     - ```app/```
         - ```store.js```
@@ -205,6 +207,10 @@ Example:
 
 - ```src/components/```
     - Contains the header for navigation 
+    - Goal form
+    - Goal item display
+    - Loading spinner
+    - Also end with ```.jsx```
 
 ### node_modules/
 
@@ -351,6 +357,75 @@ npm run dev
 ```
 
 This will run both the server and the frontend. 
+
+### Getting ready for deployment 
+
+```backend/server.js```
+
+- Add functionality for production
+    - See lines 23-29
+
+Within ```frontend/``` run the following command to generate the build folder:
+
+```
+npm run build
+```
+
+Now you can run the following and everything should run fine: 
+
+```
+npm run start
+```
+
+### Using Heroku for deployment
+
+- Install Heroku CLI
+    - To check if its already installed, do the following in the terminal
+
+    ```
+    heroku --version
+    ```
+
+- Login to heroku 
+
+```
+heroku login
+```
+
+- Create a heroku app, [this](https://clublabmernbrett.herokuapp.com/) is the link to this project
+
+```
+heroku create <unique name>
+```
+
+- Add the ENV variables
+    - Go to the Heroku dashboard (on the Heroku website)
+    - Go to your app 
+    - Go to settings
+        - Go to reveal config vars
+            - Type your ENV variables as config vars
+- Within ```package.json``` (the root one), add a post build script like so you dont have to keep running ```npm run build```
+
+```
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+```
+
+- Now push to the heroku repository 
+    - Go to the deploy tab (on the heroku website)
+        - Run the "remote" heroku command
+        - Then push it to heroku
+
+        ```
+        git push heroku master
+        ```
+
+
 
 ---
 
